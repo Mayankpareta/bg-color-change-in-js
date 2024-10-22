@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>set interval</title>
+     <style>
+          h1
+          {
+               text-align: center;
+
+          }
+          h2
+          {
+               text-align: center;
+               color: midnightblue;
+          }
+          #start
+          {
+               margin-left: 500px;
+               height: 100px;
+               width: 100px;
+               background-color: goldenrod;
+          }
+          #stop
+          {
+               margin-left: 90px;
+               height: 100px;
+               width: 100px;
+               background-color: goldenrod;
+          }
+
+
+     </style>
+</head>
+<body>
+     
+     <h1>Background color changer</h1>
+     <h2> Tap to change color </h2>
+      <button id="start">start</button>
+      <button id="stop">stop</button>
+
+<script>
+
+     const fisrt = function ()
+     {
+     	let hex ='0123456789abcdef';
+     	color = "#";
+
+     	for(i=0 ; i<6 ; i++)
+     	{
+     		 color += hex[Math.floor(Math.random() * 16)];
+     	}
+
+     	return color;
+         }
+
+         let interval;
+
+     let startColor = function()
+     {
+          if(!interval)
+          {
+          interval = setInterval(setbg,1000)
+          }
+
+          function setbg (){
+     	document.body.style.backgroundColor = fisrt()
+          }
+     }
+
+     let stopColor = function()
+     {
+     	clearInterval(interval)
+     	interval = null;
+     
+     }
+     
+
+     document.querySelector("#start").addEventListener("click", startColor);
+      
+     document.querySelector("#stop").addEventListener("click", stopColor);
+
+    
+
+
+</script>
+
+</body>
+</html>
